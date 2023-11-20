@@ -24,4 +24,6 @@
     background-color: #701313;
     opacity: 0.4;
 }
-
+.hide{
+    display: none;
+}

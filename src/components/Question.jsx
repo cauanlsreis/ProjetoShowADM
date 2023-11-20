@@ -27,13 +27,20 @@ const Question = () => {
               key={option} 
               answer={currentQuestion.answer} 
               selectOption={() => onSelectOption(option)}
+              hide={quizState.optionToHide === option ? "hide" : null}
               />
             ))}
         </div>
+        {!quizState.answerSelected && (
+          <button onClick={() => dispatch({ type: "REMOVE_OPTION" })}>
+            Excluir uma
+          </button>
+        )}
+
         {quizState.answerSelected && (
           <button onClick={() => dispatch({type: "CHANGE_QUESTION"})}>
-          Continuar
-        </button>
+            Continuar
+          </button>
         )}
     </div>
   )
