@@ -1,0 +1,22 @@
+#category {
+    text-align: center;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#category div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#category button {
+    margin-bottom: 30px; /* Ajuste o valor conforme necessário para adicionar espaço entre os botões */
+}
+
+#category h2,
+#category p {
+    margin-bottom: 5rem;
+}
