@@ -33,8 +33,7 @@ const data = [
         "Barreiras de Economia de Escala", 
         "Diferenciação do Produto",
         "Acesso à Distribuição", 
-        "Capital Necessário", 
-        "Requisitos Legais e Regulatórios"],
+        "Capital Necessário"],
       answer: "Diferenciação do Produto",
     },
     {
