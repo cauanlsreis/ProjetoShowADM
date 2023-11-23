@@ -70,18 +70,19 @@ const quizReducer = (state, action) => {
           return initialState;
         
         case "CHECK_ANSWER":
-          if(state.answerSelected) return state;
-          
+          if (state.answerSelected) return state;
+
           const answer = action.payload.answer;
           const option = action.payload.option;
           let correctAnswer = 0;
-          
-          if(answer === option) correctAnswer = 1;
 
-          return{
-            ...state,
-            score: state.score + correctAnswer,
-            answerSelected: option,
+          if (answer === option) correctAnswer = 1;
+
+          return {
+              ...state,
+              score: state.score + correctAnswer,
+              answerSelected: option,
+              gameStage: correctAnswer === 0 ? "End" : state.gameStage,
           };
         
         case "REMOVE_OPTION":
