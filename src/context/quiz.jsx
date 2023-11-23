@@ -53,38 +53,45 @@ const quizReducer = (state, action) => {
         
         case "CHANGE_QUESTION":
           const nextQuestion = state.currentQuestion + 1;
-          let endGame = false;
+          let isEndGame = false;
 
-          if (!state.questions[nextQuestion]){
-            endGame = true;
+          if (!state.questions[nextQuestion]) {
+              isEndGame = true;
           }
 
-            return{
-                ...state, 
-                currentQuestion: nextQuestion,
-                gameStage: endGame ? STAGES[3] : state.gameStage,
-                answerSelected: false,
-            };
+          return {
+              ...state,
+              currentQuestion: nextQuestion,
+              gameStage: isEndGame ? STAGES[3] : state.gameStage,
+              answerSelected: false,
+          };
         
         case "NEW_GAME":
           return initialState;
         
         case "CHECK_ANSWER":
+          
           if (state.answerSelected) return state;
-
+        
           const answer = action.payload.answer;
           const option = action.payload.option;
           let correctAnswer = 0;
-
-          if (answer === option) correctAnswer = 1;
-
+          let somatorio = state.somatorio || 0; // Inicializa com 0 se somatorio ainda não existe
+        
+          if (answer === option) {
+              correctAnswer = 1;
+          } else {
+              somatorio += 1; // Incrementa o somatorio se a resposta for incorreta
+          }
+        
           return {
               ...state,
               score: state.score + correctAnswer,
               answerSelected: option,
-              gameStage: correctAnswer === 0 ? "End" : state.gameStage,
+              somatorio: somatorio,
+              gameStage: somatorio >= 2 ? "End" : state.gameStage,
           };
-        
+
         case "REMOVE_OPTION":
           const questionWithoutOption = state.questions[state.currentQuestion]
           
