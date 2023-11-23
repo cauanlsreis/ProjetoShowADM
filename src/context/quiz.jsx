@@ -41,11 +41,14 @@ const quizReducer = (state, action) => {
             return Math.random() - 0.5;
           });
 
+          // Pegar as 10 primeiras perguntas reordenadas
+          const selectedQuestions = reorderedQuestions.slice(0, 10);
+
           return {
             // estado presente
             ...state,
             // perguntas = perguntas reordenadas
-            questions: reorderedQuestions,
+            questions: selectedQuestions,
           };
         
         case "CHANGE_QUESTION":

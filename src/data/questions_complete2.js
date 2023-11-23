@@ -38,39 +38,41 @@ const data = [
             "Só quando o administrador pedir"],
           answer: "Sim, é muito importante pro planejamento",
         },
-        {quention:"Marque qual alternativa não é uma Variável de contingência que afetam a estrutura:",
-         options: [
-          "Ambiente",
-          "Tamanho",
-          "Visual",
-          "Tecnologia"],
-        answer: "Visual",
+        {
+          quention:"Marque qual alternativa não é uma Variável de contingência que afetam a estrutura:",
+          options: [
+            "Ambiente",
+            "Tamanho",
+            "Visual",
+            "Tecnologia"],
+          answer: "Visual",
         },
-        {question: "Assinale a alternativa que tem três características de cultura organizacional:",
-         options:[
-          "Controle , Tolerância a risco , Tolerância a conflitos ",
-          "Controle , Tolerância a conflitos , Método de valorização do negócio",
-          "Critério de recompensa , Reconhecimento de situações de crise , Integração da unidade ",
-          "Método de valorização do negócio, Reconhecimento de situações de crise, Integração da unidade"],
-        answer:"Controle , Tolerância a risco , Tolerância a conflitos ",
+        {
+          question: "Assinale a alternativa que tem três características de cultura organizacional:",
+          options:[
+            "Controle , Tolerância a risco , Tolerância a conflitos ",
+            "Controle , Tolerância a conflitos , Método de valorização do negócio",
+            "Critério de recompensa , Reconhecimento de situações de crise , Integração da unidade ",
+            "Método de valorização do negócio, Reconhecimento de situações de crise, Integração da unidade"],
+          answer:"Controle , Tolerância a risco , Tolerância a conflitos ",
       },
-      {question:"O que caracteriza uma organização Mecanística ?",
-       options:[
-        "Alta flexibilidade nas decisões e comunicação informal",
-        "Estrutura hierárquica, centralização de autoridade e regras rígidas",
-        "Ênfase na invocação e descentralização de poder ",
-        "Equipes autogerenciadas e poucas camadas de gestão "
-       ],
+      {
+        question:"O que caracteriza uma organização Mecanística ?",
+        options:[
+          "Alta flexibilidade nas decisões e comunicação informal",
+          "Estrutura hierárquica, centralização de autoridade e regras rígidas",
+          "Ênfase na invocação e descentralização de poder ",
+          "Equipes autogerenciadas e poucas camadas de gestão "],
         answer:"Estrutura hierárquica, centralização de autoridade e regras rígidas",
       },
-      {question:"Dentre as variáveis de contingência que determinarão a amplitude de controle apropriada, qual opção não se encaixa:",
-       options:[
-        "Similaridade das tarefas dos funcionários",
-        "Complexidade das tarefas",
-        "Sofisticação do sistema de informação administrativa da organização",
-        "Ramo de atuação da empresa"
-       ],
-       answer:"Ramo de atuação da empresa",
+      {
+        question:"Dentre as variáveis de contingência que determinarão a amplitude de controle apropriada, qual opção não se encaixa:",
+        options:[
+          "Similaridade das tarefas dos funcionários",
+          "Complexidade das tarefas",
+          "Sofisticação do sistema de informação administrativa da organização",
+          "Ramo de atuação da empresa"],
+        answer:"Ramo de atuação da empresa",
       },
       {question:"Na organização de uma empresa, o que é uma estrutura simples?",
        options:[
