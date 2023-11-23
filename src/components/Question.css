@@ -1,22 +1,22 @@
 #question {
     text-align: center;
-    max-width: 500px;
+    max-width: 600px;
     background: linear-gradient(to bottom right, #8B0000, #FF0000);
     border-radius: 1rem;
-    padding: 2rem;
+    padding: 1rem;
     font-weight: bold;
     border: 1px solid #FFF;
 }
 
 #question h2{
+    font-size: 1.2vw;
     font-weight: bolder;
-    margin-bottom: 2rem;
-    
+    margin-bottom: 1rem;
 }
 
 #question p{
     padding-bottom: 1rem;
-}
+}   
 
 #question button {
     margin: 0.5rem;

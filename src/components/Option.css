@@ -6,6 +6,7 @@
     cursor: pointer;
     opacity: 0.8;
     transition: 0.4s;
+    font-size: 0.7vw;
 }
 
 .option:hover {
@@ -24,6 +25,7 @@
     background-color: #701313;
     opacity: 0.4;
 }
+
 .hide{
     display: none;
 }
