@@ -50,6 +50,12 @@ const Question = () => {
         </button>
       )}
 
+      {!quizState.answerSelected && !quizState.isStopButtonUsed && (
+        <button onClick={() => dispatch({ type: "STOP_GAME" })}>
+          Parar
+        </button>
+      )}
+
       {quizState.answerSelected && (
         <button onClick={() => dispatch({ type: "CHANGE_QUESTION" })}>
           Continuar

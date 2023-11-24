@@ -12,6 +12,7 @@ const initialState = {
     optionToHide: null,
     isRemoveOptionButtonVisible: true,
     isSkipButtonUsed: false,
+    isStopButtonUsed: false,
 };
 
 const quizReducer = (state, action) => {
@@ -120,6 +121,14 @@ const quizReducer = (state, action) => {
                 isSkipButtonUsed: true,
                 answerSelected: false,
             };
+        
+        case "STOP_GAME":
+          return {
+            ...state,
+            gameStage: STAGES[3],
+            isStopButtonUsed: true,
+            answerSelected: false,
+          };
         
         default:
             return state;
