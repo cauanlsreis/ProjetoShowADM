@@ -18,6 +18,11 @@ const Question = () => {
     
   return (
     <div id="question">
+        <div className="status-indicators">
+          <div className="status-indicator">Errar: {quizState.score}</div>
+          <div className="status-indicator">Parar: {quizState.currentQuestion}</div>
+          <div className="status-indicator">Acertar: {quizState.questions.length - quizState.currentQuestion - 1}</div>
+        </div>
         <h2>Pergunta {quizState.currentQuestion + 1} de {quizState.questions.length}</h2>
         <p>{currentQuestion.question}</p>
         <div id="options-container">
@@ -31,7 +36,7 @@ const Question = () => {
               />
             ))}
         </div>
-        {!quizState.answerSelected && (
+        {!quizState.answerSelected && quizState.isRemoveOptionButtonVisible && (
           <button onClick={() => dispatch({ type: "REMOVE_OPTION" })}>
             Excluir uma
           </button>

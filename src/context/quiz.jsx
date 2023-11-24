@@ -9,7 +9,8 @@ const initialState = {
     currentQuestion: 0,
     score: 0,
     answerSelected: false,
-    optionToHide: null
+    optionToHide: null,
+    isRemoveOptionButtonVisible: true,
 };
 
 const quizReducer = (state, action) => {
@@ -58,7 +59,7 @@ const quizReducer = (state, action) => {
           if (!state.questions[nextQuestion]) {
               isEndGame = true;
           }
-
+          
           return {
               ...state,
               currentQuestion: nextQuestion,
@@ -108,7 +109,7 @@ const quizReducer = (state, action) => {
           return{
             ...state,
             optionToHide,
-            
+            isRemoveOptionButtonVisible: false,
           }
 
         default:
