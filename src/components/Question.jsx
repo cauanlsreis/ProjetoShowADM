@@ -42,11 +42,18 @@ const Question = () => {
           </button>
         )}
 
+        {!quizState.answerSelected && !quizState.isSkipButtonUsed && (
+            <button onClick={() => dispatch({ type: "SKIP_QUESTION" })}>
+                Pular
+            </button>
+        )}
+
         {quizState.answerSelected && (
           <button onClick={() => dispatch({type: "CHANGE_QUESTION"})}>
             Continuar
           </button>
         )}
+  
     </div>
   )
 }

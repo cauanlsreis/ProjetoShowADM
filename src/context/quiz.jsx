@@ -11,6 +11,7 @@ const initialState = {
     answerSelected: false,
     optionToHide: null,
     isRemoveOptionButtonVisible: true,
+    isSkipButtonUsed: false,
 };
 
 const quizReducer = (state, action) => {
@@ -112,6 +113,14 @@ const quizReducer = (state, action) => {
             isRemoveOptionButtonVisible: false,
           }
 
+          case "SKIP_QUESTION":
+            return {
+                ...state,
+                currentQuestion: state.currentQuestion + 1,
+                isSkipButtonUsed: true,
+                answerSelected: false,
+            };
+        
         default:
             return state;
     }
