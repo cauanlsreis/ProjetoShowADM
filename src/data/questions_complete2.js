@@ -39,7 +39,7 @@ const data = [
           answer: "Sim, é muito importante pro planejamento",
         },
         {
-          quention:"Marque qual alternativa não é uma Variável de contingência que afetam a estrutura:",
+          question:"Marque qual alternativa não é uma Variável de contingência que afetam a estrutura:",
           options: [
             "Ambiente",
             "Tamanho",
