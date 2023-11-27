@@ -4,16 +4,19 @@ import questions from '../data/questions_complete2'
 const STAGES = ["Start", "Category", "Playing", "End"]
 
 const initialState = {
-    gameStage: STAGES[0],
-    questions,
-    currentQuestion: 0,
-    score: 0,
-    answerSelected: false,
-    optionToHide: null,
-    isRemoveOptionButtonVisible: true,
-    isSkipButtonUsed: false,
-    isStopButtonUsed: false,
+  gameStage: STAGES[0],
+  questions,
+  currentQuestion: 0,
+  score: 0,
+  answerSelected: false,
+  optionToHide: null,
+  isRemoveOptionButtonVisible: true,
+  isSkipButtonUsed: false,
+  isStopButtonUsed: false,
+  prizeAmount: 0,
+  acertarValue: 100000, // Adicione aqui
 };
+
 
 const quizReducer = (state, action) => {
     
@@ -73,28 +76,55 @@ const quizReducer = (state, action) => {
           return initialState;
         
         case "CHECK_ANSWER":
-          
           if (state.answerSelected) return state;
         
           const answer = action.payload.answer;
           const option = action.payload.option;
           let correctAnswer = 0;
-          let somatorio = state.somatorio || 0; // Inicializa com 0 se somatorio ainda não existe
+          let somatorio = state.somatorio || 0;
+          const valorPerguntaCerta = 100000;
+          const valorPerguntaErrada = 50000;
+          let newAcertarValue = state.acertarValue || 100000;
+          let newPrizeAmount = state.prizeAmount;
         
           if (answer === option) {
-              correctAnswer = 1;
+            correctAnswer = 1;
+        
+            if (somatorio === 0) {
+              // Se for a primeira resposta certa, incrementa pelo valor da pergunta certa
+              newPrizeAmount += valorPerguntaCerta;
+            } else {
+              // Se for uma resposta certa após a primeira errada, incrementa valorPerguntaErrada
+              newPrizeAmount += valorPerguntaErrada;
+            }
           } else {
-              somatorio += 1; // Incrementa o somatorio se a resposta for incorreta
+            somatorio += 1;
+        
+            if (somatorio === 1) {
+              // Se for a primeira resposta errada, o prêmio acumulado é dividido por 2
+              newPrizeAmount = Math.floor(newPrizeAmount / 2);
+              newAcertarValue = valorPerguntaErrada;
+            } else if (somatorio > 1) {
+              // Se somatorio for maior que 1, as respostas corretas valem valorPerguntaErrada
+              newPrizeAmount = 0;
+            }
           }
         
           return {
-              ...state,
-              score: state.score + correctAnswer,
-              answerSelected: option,
-              somatorio: somatorio,
-              gameStage: somatorio >= 2 ? "End" : state.gameStage,
+            ...state,
+            score: state.score + correctAnswer,
+            answerSelected: option,
+            somatorio: somatorio,
+            gameStage: somatorio >= 2 ? "End" : state.gameStage,
+            prizeAmount: newPrizeAmount,
+            acertarValue: newAcertarValue,
           };
-
+        
+          
+          
+          
+          
+          
         case "REMOVE_OPTION":
           const questionWithoutOption = state.questions[state.currentQuestion]
           

@@ -8,6 +8,7 @@ import "./Question.css";
 const Question = () => {
   const [quizState, dispatch] = useContext(QuizContext);
   const currentQuestion = quizState.questions[quizState.currentQuestion];
+  const acertarValue = 100000; // Ajuste aqui
 
   const onSelectOption = (option) => {
     dispatch({
@@ -17,13 +18,14 @@ const Question = () => {
   };
 
   const questaoAtual = quizState.currentQuestion + 1;
+  const valorPerguntaCerta = 100000;
+  const valorPerguntaErrada = 50000;
 
   return (
     <div id="question">
       <div className="status-indicators">
-        <div className="status-indicator">Errar: 0</div>
-        <div className="status-indicator">Parar: 0</div>
-        <div className="status-indicator">Acertar: 1000</div>
+        <div className="status-indicator">Parar: {quizState.prizeAmount}</div>
+        <div className="status-indicator">Acertar: {quizState.somatorio >= 1 ? valorPerguntaErrada : quizState.acertarValue}</div>
       </div>
       <h2>Pergunta {questaoAtual} de {quizState.questions.length}</h2>
       <p>{currentQuestion.question}</p>
